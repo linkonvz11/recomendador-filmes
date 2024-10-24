@@ -11,51 +11,43 @@
 let campoIdade;
 let campoFantasia;
 let campoAventura;
-let campoDrama;
-let campoAção;
-let campoComédia;
 
 function setup() {
-  createCanvas(800, 400);
+  createCanvas(500, 400);
   createElement("h2", "Recomendador de filmes");
   createSpan("Sua idade:");
-  campoIdade = createInput("0");
+  campoIdade = createInput("5");
   campoFantasia = createCheckbox("Gosta de fantasia?");
   campoAventura = createCheckbox("Gosta de aventura?");
-  campoFantasia = createCheckbox("Gosta de comédia?");
-  campoAventura = createCheckbox("Gosta de drama?");
-  campoAventura = createCheckbox("Gosta de ação?");
 }
 
 function draw() {
-  background("white");
+  background("gray");
   let idade = campoIdade.value();
   let gostaDeFantasia = campoFantasia.checked();
   let gostaDeAventura = campoAventura.checked();
-  let gostaDeDrama = campoDrama.checked();
-  let gostaDeAção = campoAventura.checked();
-  let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura, gostadeDrama, gostaDeAção, gostaDeComédia);
+  let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura);
 
-  fill(color(76, 0, 115));
+  fill(color(1, 190, 1));
   textAlign(CENTER, CENTER);
-  textSize(38);
+  textSize(20);
   text(recomendacao, width / 2, height / 2);
 }
 
 function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
   if (idade >= 10) {
     if (idade >= 14) {
-      return "O menino que descobriu o vento";
+      return "Como treinar seu dragão";
     } else {
-      if (idade >= 12) {
+      if (idade >= 10 ) {
         if(gostaDeFantasia || gostaDeAventura) {
-          return "Homem aranha: no aranhaverso";          
+          return "Karate kid";          
         } else{
-         return "Ladrões de bicicleta";
+         return "Gente grande";
         }
       } else {
         if (gostaDeFantasia) {
-          return "As aventuras de pi";
+          return "O rei leão";
         } else {
           return "Depois da chuva";
         }
@@ -63,9 +55,9 @@ function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
     }
   } else {
     if (gostaDeFantasia) {
-      return "A viagem de chihiro";
+      return "La casa de papel";
     } else {
-      return "O feitiço do tempo";
-    }
+      return "Como treinar seu dragão"
+     }
+   }
   }
-}
